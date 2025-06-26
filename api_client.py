@@ -154,10 +154,10 @@ def index():
 
         try:
             # Register the seed hash (optional — can be skipped if pre-registered)
-            requests.post('http://127.0.0.1:5001/register_seed', json={'seed': seed})
+            requests.post('https://polybius-project.onrender.com/register_seed', json={'seed': seed})('http://127.0.0.1:5001/register_seed', json={'seed': seed})
 
             # Send cipher + seed_hash to server for decryption
-            res = requests.post('http://127.0.0.1:5001/decrypt', json={
+            res = requests.post('https://polybius-project.onrender.com/decrypt', json={
                 'seed_hash': seed_hash,
                 'cipher': encrypted
             })
