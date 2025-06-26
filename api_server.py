@@ -150,12 +150,19 @@ def latest():
         </div>
 
         <h3 style="color:#7dcfff;">🧮 Polybius Square Matrix</h3>
-        <table>
-            <tr><th></th>{% for col in range(1, 6) %}<th>{{ col }}</th>{% endfor %}</tr>
-            {% for i in range(5) %}
-            <tr><th>{{ i+1 }}</th>{% for j in range(5) %}<td>{{ matrix[i][j] }}</td>{% endfor %}</tr>
-            {% endfor %}
-        </table>
+        {% if matrix %}
+            <table>
+                {% for row in matrix %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p><i>No matrix available yet.</i></p>
+        {% endif %}
 
         <div class='result'>
             🔓 Decrypted Message: {{ decrypted }}
