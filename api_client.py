@@ -154,7 +154,7 @@ def index():
 
         try:
             # Register the seed hash (optional — can be skipped if pre-registered)
-            requests.post('https://polybius-project.onrender.com/register_seed', json={'seed': seed})('http://127.0.0.1:5001/register_seed', json={'seed': seed})
+            requests.post('https://polybius-project.onrender.com/register_seed', json={'seed': seed})
 
             # Send cipher + seed_hash to server for decryption
             res = requests.post('https://polybius-project.onrender.com/decrypt', json={
@@ -165,8 +165,9 @@ def index():
         except Exception as e:
             decrypted = f"❌ Server error: {e}"
 
-    return render_template_string(html_template, encrypted=encrypted, matrix=matrix)
+    return render_template_string(html_template, encrypted=encrypted, decrypted=decrypted, matrix=matrix)
 
-if __name__ == '__main__':
-    url = 'https://polybius-project.onrender.com'
+if __name__ == "__main__":
+    from os import environ
+    app.run(host="0.0.0.0", port=int(environ.get("PORT", 5000)))
 
