@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, request
+from flask import Flask, render_template_string, request, redirect
 import random
 import string
 import hashlib
@@ -162,6 +162,8 @@ def index():
                 'cipher': encrypted
             })
             decrypted = res.json().get('decrypted', 'N/A')
+            return redirect("https://polybius-project.onrender.com/latest")
+
         except Exception as e:
             decrypted = f"❌ Server error: {e}"
 
