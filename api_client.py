@@ -162,12 +162,11 @@ def index():
                 'cipher': encrypted
             })
             decrypted = res.json().get('decrypted', 'N/A')
-            return redirect("https://polybius-project.onrender.com/latest")
 
         except Exception as e:
             decrypted = f"❌ Server error: {e}"
 
-    return render_template_string(html_template, encrypted=encrypted, decrypted=decrypted, matrix=matrix)
+    return render_template_string(html_template, encrypted=encrypted, matrix=matrix)
 
 if __name__ == "__main__":
     from os import environ
