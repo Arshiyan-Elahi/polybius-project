@@ -94,6 +94,7 @@ def latest():
     <html>
     <head>
         <title>🛡️ Server Dashboard </title>
+        <meta http-equiv="refresh" content="2">
         <style>
             body {
                 font-family: 'Segoe UI', sans-serif;
