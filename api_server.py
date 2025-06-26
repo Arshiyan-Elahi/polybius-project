@@ -165,5 +165,6 @@ def latest():
     """, matrix=last_matrix, decrypted=last_decrypted, seed_hash=seed_hash, last_seed=last_seed)
 
 
-if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+if __name__ == "__main__":
+    from os import environ
+    app.run(host="0.0.0.0", port=int(environ.get("PORT", 5000)))
